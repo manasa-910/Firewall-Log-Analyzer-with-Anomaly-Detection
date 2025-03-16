@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Anomalies Data</title>
+</head>
+<body>
+    <h2>Firewall Anomalies Data</h2>
+
+    {% if data and "Error" in data[0] %}
+        <p style="color: red;">{{ data[0]["Error"] }}</p>
+    {% else %}
+        <table border="1">
+            <thead>
+                <tr>
+                    {% for col in data[0].keys() %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for value in row.values() %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <h3>Debugging Output:</h3>
+    <pre>{{ data }}</pre> 
+</body>
+</html>
