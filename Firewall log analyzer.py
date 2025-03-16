@@ -40,8 +40,8 @@ if not df.empty:
 
 # Function to send alerts
 def send_alert(message):
-    bot_token = "7597213051:AAF3Hv0ZZXxSeCdZ4-9LSbcxByIVk90LLSA"  # Replace with environment variable
-    chat_id = "827507336"
+    bot_token = "<your telegram bot token>"  
+    chat_id = "<telegram chat id>"
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     data = {"chat_id": chat_id, "text": message}
     requests.post(url, data=data)
